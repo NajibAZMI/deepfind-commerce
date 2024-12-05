@@ -4,8 +4,6 @@ import os
 import numpy as np
 from tensorflow.keras.applications.mobilenet import MobileNet, preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
-from tensorflow.keras.applications import VGG16
-
 
 # Initialisation de l'application Flask
 app = Flask(__name__)
@@ -15,8 +13,7 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Chargement du modèle pré-entraîné
-
-model = VGG16(weights='imagenet')  
+model = MobileNet(weights='imagenet')
 
 # Route principale
 @app.route('/')
@@ -45,26 +42,17 @@ def upload():
         image_array = np.expand_dims(image_array, axis=0)
         image_array = preprocess_input(image_array)
 
-        # Prédiction des catégories de l'image
+        # Prédiction de la catégorie de l'image
         predictions = model.predict(image_array)
-        decoded_predictions = decode_predictions(predictions, top=3)[0]  # Top 3 catégories
-        category = None
-        similar_images = []
+        decoded_predictions = decode_predictions(predictions, top=1)[0]
+        category = decoded_predictions[0][1]  # Nom de la catégorie prédite
 
-        # Vérification des catégories disponibles
-        for pred in decoded_predictions:
-            possible_category = pred[1]
-            similar_images_folder = os.path.join('static/images', possible_category)
-
-            if os.path.exists(similar_images_folder):
-                category = possible_category
-                similar_images = os.listdir(similar_images_folder)
-                break
-
-        # Si aucune correspondance trouvée
-        if not category:
-            category = decoded_predictions[0][1]  # Catégorie la plus probable
-            similar_images = []  # Aucun dossier correspondant
+        # Récupération des images similaires
+        similar_images_folder = os.path.join('static/images', category)
+        if os.path.exists(similar_images_folder):
+            similar_images = os.listdir(similar_images_folder)
+        else:
+            similar_images = []
 
         return render_template('results.html', uploaded_image=filename, category=category, similar_images=similar_images)
 
