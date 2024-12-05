@@ -1,0 +1,296 @@
+{
+                    "electronics": [
+                        {
+                            "id": 1,
+                            "name": "Laptop 1",
+                            "image": "static/images/laptop1.jpg",
+                            "price": 799.99,
+                            "description": "Un ordinateur portable performant pour tous vos besoins.",
+                            "brand": "Brand A",
+                            "features": [
+                                "Écran 15 pouces",
+                                "Processeur Intel i5",
+                                "8 Go de RAM",
+                                "256 Go SSD"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "name": "Laptop 2",
+                            "image": "static/images/laptop2.jpg",
+                            "price": 899.99,
+                            "description": "Un modèle haut de gamme avec un écran 4K.",
+                            "brand": "Brand B",
+                            "features": [
+                                "Écran 14 pouces 4K",
+                                "Processeur Intel i7",
+                                "16 Go de RAM",
+                                "512 Go SSD"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "name": "Laptop 3",
+                            "image": "static/images/laptop3.jpg",
+                            "price": 999.99,
+                            "description": "Un ordinateur léger et ultra-portable.",
+                            "brand": "Brand C",
+                            "features": [
+                                "Écran 13 pouces",
+                                "Processeur Intel i5",
+                                "8 Go de RAM",
+                                "256 Go SSD"
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "name": "Laptop 4",
+                            "image": "static/images/laptop4.jpg",
+                            "price": 1050.99,
+                            "description": "Parfait pour les professionnels avec un excellent design.",
+                            "brand": "Brand D",
+                            "features": [
+                                "Écran 15 pouces",
+                                "Processeur Intel i9",
+                                "32 Go de RAM",
+                                "1 To SSD"
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "name": "Laptop 5",
+                            "image": "static/images/laptop5.jpg",
+                            "price": 749.99,
+                            "description": "Un ordinateur solide et abordable.",
+                            "brand": "Brand E",
+                            "features": [
+                                "Écran 15 pouces",
+                                "Processeur AMD Ryzen 5",
+                                "8 Go de RAM",
+                                "512 Go SSD"
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "name": "Laptop 6",
+                            "image": "static/images/laptop6.jpg",
+                            "price": 1199.99,
+                            "description": "Un modèle avec une excellente autonomie et performance.",
+                            "brand": "Brand F",
+                            "features": [
+                                "Écran 16 pouces",
+                                "Processeur Intel i7",
+                                "16 Go de RAM",
+                                "1 To SSD"
+                            ]
+                        }
+                    ],
+                    "audio": [
+                        {
+                            "id": 1,
+                            "name": "Loudspeaker 1",
+                            "image": "static/images/loudspeaker1.jpg",
+                            "price": 199.99,
+                            "description": "Haut-parleur portable avec son de haute qualité.",
+                            "brand": "Brand G",
+                            "features": [
+                                "Bluetooth 5.0",
+                                "Autonomie 10 heures",
+                                "Imperméable"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "name": "Loudspeaker 2",
+                            "image": "static/images/loudspeaker2.jpg",
+                            "price": 149.99,
+                            "description": "Haut-parleur compact pour les déplacements.",
+                            "brand": "Brand H",
+                            "features": [
+                                "Bluetooth 4.2",
+                                "Autonomie 8 heures",
+                                "Léger et portable"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "name": "Loudspeaker 3",
+                            "image": "static/images/loudspeaker3.jpg",
+                            "price": 249.99,
+                            "description": "Haut-parleur avec basses profondes et son stéréo.",
+                            "brand": "Brand I",
+                            "features": [
+                                "Bluetooth 5.0",
+                                "Autonomie 12 heures",
+                                "Audio haute fidélité"
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "name": "Loudspeaker 4",
+                            "image": "static/images/loudspeaker4.jpg",
+                            "price": 299.99,
+                            "description": "Haut-parleur avec système de son surround.",
+                            "brand": "Brand J",
+                            "features": [
+                                "Bluetooth 5.1",
+                                "Autonomie 15 heures",
+                                "Son 360°"
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "name": "Loudspeaker 5",
+                            "image": "static/images/loudspeaker5.jpg",
+                            "price": 349.99,
+                            "description": "Haut-parleur haut de gamme avec technologie Dolby.",
+                            "brand": "Brand K",
+                            "features": [
+                                "Bluetooth 5.2",
+                                "Autonomie 20 heures",
+                                "Technologie Dolby Atmos"
+                            ]
+                        }
+                    ],
+                    "smartphones": [
+                        {
+                            "id": 1,
+                            "name": "SmartPhone 1",
+                            "image": "static/images/SmatPhone1.jpg",
+                            "price": 699.99,
+                            "description": "Smartphone performant avec un appareil photo de 48 MP.",
+                            "brand": "Brand L",
+                            "features": [
+                                "Écran 6.5 pouces",
+                                "Caméra 48 MP",
+                                "Batterie 4000 mAh",
+                                "5G"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "name": "SmartPhone 2",
+                            "image": "static/images/SmatPhone2.jpg",
+                            "price": 799.99,
+                            "description": "Smartphone avec écran AMOLED et processeur rapide.",
+                            "brand": "Brand M",
+                            "features": [
+                                "Écran 6.7 pouces AMOLED",
+                                "Processeur Snapdragon 888",
+                                "Caméra 64 MP",
+                                "Batterie 4500 mAh"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "name": "SmartPhone 3",
+                            "image": "static/images/SmatPhone3.jpg",
+                            "price": 899.99,
+                            "description": "Smartphone haut de gamme avec design premium.",
+                            "brand": "Brand N",
+                            "features": [
+                                "Écran 6.8 pouces OLED",
+                                "Processeur A14 Bionic",
+                                "Caméra 108 MP",
+                                "Batterie 5000 mAh"
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "name": "SmartPhone 4",
+                            "image": "static/images/SmatPhone4.jpg",
+                            "price": 1099.99,
+                            "description": "Smartphone avec une expérience de jeu ultime.",
+                            "brand": "Brand O",
+                            "features": [
+                                "Écran 6.9 pouces 120Hz",
+                                "Processeur Qualcomm Snapdragon 888",
+                                "Caméra 50 MP",
+                                "Batterie 6000 mAh"
+                            ]
+                        },
+                        {
+                            "id": 5,
+                            "name": "SmartPhone 5",
+                            "image": "static/images/SmatPhone5.jpg",
+                            "price": 1299.99,
+                            "description": "Smartphone avec un écran 4K et une caméra ultra-haute définition.",
+                            "brand": "Brand P",
+                            "features": [
+                                "Écran 6.7 pouces 4K",
+                                "Processeur Exynos 2100",
+                                "Caméra 108 MP",
+                                "Batterie 5000 mAh"
+                            ]
+                        },
+                        {
+                            "id": 6,
+                            "name": "SmartPhone 6",
+                            "image": "static/images/SmatPhone6.jpg",
+                            "price": 1399.99,
+                            "description": "Smartphone ultime pour les utilisateurs exigeants.",
+                            "brand": "Brand Q",
+                            "features": [
+                                "Écran 7 pouces OLED",
+                                "Processeur Snapdragon 8 Gen 1",
+                                "Caméra 200 MP",
+                                "Batterie 6500 mAh"
+                            ]
+                        }
+                    ],
+                    "furniture": [
+                        {
+                            "id": 1,
+                            "name": "Table 1",
+                            "image": "static/images/Table1.jpg",
+                            "price": 150.00,
+                            "description": "Table en bois massif avec design moderne.",
+                            "brand": "Brand R",
+                            "features": [
+                                "Dimensions : 120x80 cm",
+                                "Matériau : Bois de chêne",
+                                "Style moderne"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "name": "Table 2",
+                            "image": "static/images/Table2.jpg",
+                            "price": 180.00,
+                            "description": "Table élégante avec finition en verre trempé.",
+                            "brand": "Brand S",
+                            "features": [
+                                "Dimensions : 100x60 cm",
+                                "Plateau en verre trempé",
+                                "Structure métallique"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "name": "Table 3",
+                            "image": "static/images/Table3.jpg",
+                            "price": 200.00,
+                            "description": "Table de salle à manger pour 4 personnes.",
+                            "brand": "Brand T",
+                            "features": [
+                                "Dimensions : 140x80 cm",
+                                "Matériau : Bois et métal",
+                                "Design minimaliste"
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "name": "Table 4",
+                            "image": "static/images/Table4.jpg",
+                            "price": 250.00,
+                            "description": "Table de salon avec tiroirs de rangement.",
+                            "brand": "Brand U",
+                            "features": [
+                                "Dimensions : 110x60 cm",
+                                "Avec tiroirs",
+                                "Matériau : Bois"
+                            ]
+                        }
+                    ]
+                }
+                
