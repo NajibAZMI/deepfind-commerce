@@ -4,6 +4,8 @@ import os
 import numpy as np
 from tensorflow.keras.applications.mobilenet import MobileNet, preprocess_input, decode_predictions
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from tensorflow.keras.applications import VGG16
+
 
 # Initialisation de l'application Flask
 app = Flask(__name__)
@@ -13,7 +15,8 @@ UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Chargement du modèle pré-entraîné
-model = MobileNet(weights='imagenet')
+
+model = VGG16(weights='imagenet')  
 
 # Route principale
 @app.route('/')
