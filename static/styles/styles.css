@@ -1,0 +1,90 @@
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background-color: #f9f9f9;
+        }
+
+.image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px; /* Espace entre les cartes */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+.card-container {
+            perspective: 1000px;
+            width: 220px;
+            height: 300px;
+            margin-left: 70px;
+            margin-bottom: 20px;
+        }
+
+.image-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+.card-container:hover .image-card {
+            transform: rotateY(180deg);
+        }
+
+.image-card .card-front,
+.image-card .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 2px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background-color: #fff;
+        }
+
+.image-card .card-front {
+            z-index: 2;
+        }
+
+.image-card .card-back {
+            transform: rotateY(180deg);
+            background-color: #3498db;
+            color: #fff;
+        }
+
+.card-front img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+.card-front .stars {
+            margin-top: 8px;
+        }
+
+.card-front .stars i {
+            color: #f1c40f;
+            font-size: 18px;
+        }
+
+.card-front .price {
+            font-weight: bold;
+            color: #2ecc71;
+            margin-top: 8px;
+        }
+
+.card-back p {
+            margin: 0;
+            font-size: 16px;
+            text-align: center;
+        }

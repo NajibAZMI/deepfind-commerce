@@ -23,15 +23,13 @@ def index():
 # Route pour gérer le téléchargement d'image
 @app.route('/upload', methods=['POST'])
 def upload():
-    if 'image' not in request.files:
-        return redirect(url_for('index'))
+    search_query = request.form.get('search', '')  # Récupère la requête de recherche (si présente)
 
-    file = request.files['image']
-    if file.filename == '':
-        return redirect(url_for('index'))
+    if 'image' in request.files:
+        file = request.files['image']
+        if file.filename == '':
+            return redirect(url_for('index'))
 
-    if file:
-        # Sauvegarder le fichier téléchargé
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
@@ -54,7 +52,13 @@ def upload():
         else:
             similar_images = []
 
-        return render_template('results.html', uploaded_image=filename, category=category, similar_images=similar_images)
+        # Filtrer les images en fonction de la recherche
+        if search_query:
+            similar_images = [img for img in similar_images if search_query.lower() in img.lower()]
+
+        return render_template('index.html', uploaded_image=filename, category=category, similar_images=similar_images, search_query=search_query)
+
+    return redirect(url_for('index'))
 
 # Démarrer l'application
 if __name__ == '__main__':
