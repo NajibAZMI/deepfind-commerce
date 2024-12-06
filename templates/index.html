@@ -5,44 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload</title>
     <link rel="stylesheet" href="../static/styles/styles.css">  <!-- Lien vers vos styles CSS -->
+    <!-- Lien vers Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+        }
+
+        /* Style de la barre verticale fixe */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #34495e;
+        }
+
+        /* Le contenu principal */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* Formulaire de téléchargement et boutons supplémentaires sur la même ligne */
+        .form-container {
+            display: flex;
+            justify-content: space-between;  /* Espacement entre le formulaire et les boutons */
+            align-items: center;  /* Alignement vertical */
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            flex-grow: 1;  /* Permet au formulaire de prendre de la place */
+            text-align: left;  /* Pour garder le texte aligné à gauche dans le formulaire */
+        }
+
+        .extra-buttons {
+            display: flex;
+            justify-content: flex-end;  /* Aligne les boutons à droite */
+            gap: 20px;
+        }
+
+        .extra-buttons a {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .extra-buttons a:hover {
+            background-color: #ecf0f1;
+        }
+
+        /* Formulaire de téléchargement */
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form input[type="file"] {
+            margin: 10px 0;
+        }
+
+        form button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Affichage des résultats */
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card-container {
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .stars {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 18px;
+            color: #27ae60;
+        }
+
+        .card-back {
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-    <!-- Formulaire de téléchargement -->
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">Télécharger</button>
-    </form>
+    <!-- Barre verticale fixe -->
+    <div class="sidebar">
+        <h2>Suite de Commerce</h2>
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Produits</a></li>
+            <li><a href="#">Offres spéciales</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">À propos</a></li>
+        </ul>
+    </div>
 
-    <!-- Affichage des résultats (si présents) -->
-    {% if uploaded_image %}
-        <h1>Résultats</h1>
-        <h2>Images similaires :</h2>
-        <div class="image-grid">
-            {% for image in similar_images %}
-            <div class="card-container">
-                <div class="image-card">
-                    <!-- Face avant -->
-                    <div class="card-front">
-                        <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Similar Image">
-                        <div class="stars">
-                            <!-- Example with 4 stars filled and 1 empty -->
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="price">40043 €</div>
-                    </div>
-                    <!-- Face arrière -->
-                    <div class="card-back">
-                        <p>Description de l'image :</p>
-                        <p>Ceci est une description détaillée du produit, incluant ses caractéristiques principales.</p>
-                    </div>
-                </div>
+    <!-- Contenu principal -->
+    <div class="content">
+        <!-- Formulaire de téléchargement et boutons supplémentaires sur la même ligne -->
+        <div class="form-container">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Télécharger</button>
+            </form>
+            <div class="extra-buttons">
+                <a href="#"><i class="fas fa-shopping-cart"></i> Panier</a>
+                <a href="#"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Aide</a>
             </div>
-            {% endfor %}
         </div>
-    {% endif %}
+
+        <!-- Affichage des résultats (si présents) -->
+        {% if uploaded_image %}
+            <h1>Résultats</h1>
+            <h2>Images similaires :</h2>
+            <div class="image-grid">
+                {% for image in similar_images %}
+                    <div class="card-container">
+                        <div class="image-card">
+                            <!-- Face avant -->
+                            <div class="card-front">
+                                <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Similar Image">
+                                <div class="stars">
+                                    <!-- Exemple avec 4 étoiles remplies et 1 vide -->
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div class="price">40043 €</div>
+                            </div>
+                            <!-- Face arrière -->
+                            <div class="card-back">
+                                <p>Description de l'image :</p>
+                                <p>Ceci est une description détaillée du produit, incluant ses caractéristiques principales.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
