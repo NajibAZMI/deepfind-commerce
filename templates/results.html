@@ -16,57 +16,88 @@
         .image-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 32px; /* Espace entre les cartes */
             justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            width: 220px;
+            height: 300px;
+            margin-left: 30px;
+            margin-bottom: 20px;
         }
 
         .image-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .card-container:hover .image-card {
+            transform: rotateY(180deg);
+        }
+
+        .image-card .card-front,
+        .image-card .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 2px solid #ddd;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 16px;
             background-color: #fff;
-            text-align: center;
-            width: 220px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .image-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        .image-card .card-front {
+            z-index: 2;
         }
 
-        .image-card img {
+        .image-card .card-back {
+            transform: rotateY(180deg);
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .card-front img {
             width: 100%;
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 12px;
         }
 
-        .image-card .price {
+        .card-front .stars {
+            margin-top: 8px;
+        }
+
+        .card-front .stars i {
+            color: #f1c40f;
+            font-size: 18px;
+        }
+
+        .card-front .price {
             font-weight: bold;
             color: #2ecc71;
             margin-top: 8px;
         }
 
-        .image-card button {
-            margin-top: 12px;
-            padding: 10px 16px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #3498db;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-card button:hover {
-            background-color: #2980b9;
+        .card-back p {
+            margin: 0;
+            font-size: 16px;
+            text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -76,10 +107,27 @@
     <h2>Images similaires :</h2>
     <div class="image-grid">
         {% for image in similar_images %}
-        <div class="image-card">
-            <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Similar Image">
-            <div class="price">40043 €</div>
-            <button>Ajouter</button>
+        <div class="card-container">
+            <div class="image-card">
+                <!-- Face avant -->
+                <div class="card-front">
+                    <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Similar Image">
+                    <div class="stars">
+                        <!-- Example with 4 stars filled and 1 empty -->
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">40043 €</div>
+                </div>
+                <!-- Face arrière -->
+                <div class="card-back">
+                    <p>Description de l'image :</p>
+                    <p>Ceci est une description détaillée du produit, incluant ses caractéristiques principales.</p>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
