@@ -2,7 +2,7 @@ import cv2
 import os
 
 # Répertoire contenant les images
-image_dir = "static/images/wallet"
+image_dir = "static/images/Windsor_tie"
  # Remplacez par votre répertoire
 
 # Taille cible
