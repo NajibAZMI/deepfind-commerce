@@ -60,11 +60,12 @@
         <!-- Affichage des résultats (si présents) -->
         <!-- Affichage des résultats (si présents) -->
 {% if uploaded_image %}
-<h1>Produits Disponibles</h1>
-<h2>Articles similaires à votre recherche :</h2>
+
+
 <div class="image-grid">
     {% if similar_images %}
         {% for image in similar_images %}
+        <h1>Produits Disponibles</h1>
             <div class="card-container">
                 <div class="image-card">
                     <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Image similaire">
@@ -81,11 +82,11 @@
             </div>
         {% endfor %}
     {% else %}
-        <p>Aucun produit trouvé pour cette recherche.</p>
+    <p class="message-aucun-produit">Aucun produit trouvé pour cette recherche.</p>
     {% endif %}
 </div>
 {% else %}
-<p>Veuillez effectuer une recherche pour voir les produits.</p>
+<p class="message-recherche">Veuillez effectuer une recherche pour voir les produits.</p>
 {% endif %}
 
     </div>
