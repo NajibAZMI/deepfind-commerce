@@ -58,28 +58,36 @@
         </div>
 
         <!-- Affichage des résultats (si présents) -->
-        {% if uploaded_image %}
-        <h1>Produits Disponibles</h1>
-        <h2>Articles similaires à votre recherche :</h2>
-        <div class="image-grid">
-            {% for image in similar_images %}
-                <div class="card-container">
-                    <div class="image-card">
-                        <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Image similaire">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="price">40043 €</div>
-                        <button class="add-to-cart" onclick="addToCart('{{ image }}')">Ajouter au panier</button>
+        <!-- Affichage des résultats (si présents) -->
+{% if uploaded_image %}
+<h1>Produits Disponibles</h1>
+<h2>Articles similaires à votre recherche :</h2>
+<div class="image-grid">
+    {% if similar_images %}
+        {% for image in similar_images %}
+            <div class="card-container">
+                <div class="image-card">
+                    <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Image similaire">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
                     </div>
+                    <div class="price">40043 €</div>
+                    <button class="add-to-cart" onclick="addToCart('{{ image }}')">Ajouter au panier</button>
                 </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Aucun produit trouvé pour cette recherche.</p>
+    {% endif %}
+</div>
+{% else %}
+<p>Veuillez effectuer une recherche pour voir les produits.</p>
+{% endif %}
+
     </div>
 
     <!-- Fenêtre modale du panier -->
