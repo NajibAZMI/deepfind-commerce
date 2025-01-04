@@ -2,7 +2,7 @@ import cv2
 import os
 
 # Répertoire contenant les images
-image_dir = "static/images/trench_coat"
+image_dir = "static/images/wallet"
  # Remplacez par votre répertoire
 
 # Taille cible
