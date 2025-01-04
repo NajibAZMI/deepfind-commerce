@@ -2,7 +2,7 @@ import cv2
 import os
 
 # Répertoire contenant les images
-image_dir = "static/images/suit"
+image_dir = "static/images/sunglass"
  # Remplacez par votre répertoire
 
 # Taille cible
