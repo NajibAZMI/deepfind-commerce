@@ -11,6 +11,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            width: 100%;
         }
 
         /* Style de la barre verticale fixe */
@@ -226,11 +227,11 @@
 
         /* Affichage des résultats */
         .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* Assure un alignement équilibré */
+}
         .card-container {
             width: 200px;
             border: 1px solid #ddd;
