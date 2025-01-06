@@ -31,7 +31,7 @@ def upload():
         if file.filename == '':
             return redirect(url_for('index'))
 
-         = secure_filename(file.filename)
+        filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
 
