@@ -288,15 +288,17 @@ body {
 }
 /* Style pour le message d'aucun produit trouvé */
 .message-aucun-produit {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d9534f; /* Rouge pour attirer l'attention */
     text-align: center;
-    margin-top: 10px;
-    font-style: italic;
+    margin: 20px 0;
   }
   
   
   .message-recherche {
     font-size: 16px;
+    color: #5bc0de; 
     text-align: center;
     margin-top: 10px;
     font-style: italic;

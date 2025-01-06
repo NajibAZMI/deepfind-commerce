@@ -28,14 +28,22 @@
         <div class="top-container">
             <!-- Barre de recherche -->
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Rechercher un produit, marque ou catégorie...">
-                <button id="searchButton">
-                    <i class="fas fa-search"></i>
-                </button>
-                <button id="cameraButton">
-                    <i class="fas fa-camera"></i>
-                </button>
-            </div>
+    <form action="/upload" method="POST" class="search-form">
+        <input 
+            type="text" 
+            id="searchInput" 
+            name="search" 
+            placeholder="Rechercher un produit, marque ou catégorie..."
+        >
+        <button type="submit" id="searchButton">
+            <i class="fas fa-search"></i>
+        </button>
+        <button type="button" id="cameraButton">
+            <i class="fas fa-camera"></i>
+        </button>
+    </form>
+</div>
+
 
             <!-- Formulaire de téléchargement et boutons supplémentaires -->
             <div class="extra-buttons">
@@ -62,10 +70,11 @@
 {% if uploaded_image %}
 
 
-<div class="image-grid">
+<div class="image-grid"> <h1>Produits Disponibles</h1>
     {% if similar_images %}
+   
         {% for image in similar_images %}
-        <h1>Produits Disponibles</h1>
+        
             <div class="card-container">
                 <div class="image-card">
                     <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" alt="Image similaire">
